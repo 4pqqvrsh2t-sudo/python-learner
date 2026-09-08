@@ -16,7 +16,6 @@ A Duolingo-style Python memory refresher whose **questions arrive as iPhone push
 - 2:00 PM
 - 4:00 PM
 - 6:00 PM
-- 8:00 PM
 
 The Worker runs once each minute and checks the `America/New_York` wall clock. This avoids DST shifting the schedule.
 
