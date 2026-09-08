@@ -20,7 +20,7 @@
     {
       "binding": "DB",
       "database_name": "pyrecall-db",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
+      "database_id": "6e1caa9b-ddd9-404c-b78c-7572321a37b1"
     }
   ]
 }
