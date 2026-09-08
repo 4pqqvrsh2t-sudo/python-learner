@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pyrecall-push",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-09-07",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "triggers": {
+    "crons": ["* * * * *"]
+  },
+  "vars": {
+    "TIME_ZONE": "America/New_York",
+    "VAPID_PUBLIC_KEY": "REPLACE_WITH_YOUR_PUBLIC_VAPID_KEY"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pyrecall-db",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
+    }
+  ]
+}
