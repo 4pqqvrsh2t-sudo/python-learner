@@ -6,6 +6,7 @@ const KEY='pyrecall-v2';
 const state = load();
 let currentQuestion=null;
 let selected=null;
+let hiddenAt=null;
 
 function load(){try{return {...defaults(),...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch{return defaults()}}
 function defaults(){return{clientId:crypto.randomUUID(),learned:DEFAULT_LEARNED,mastery:{},streak:0,lastDay:null,notifications:false}}
@@ -126,5 +127,12 @@ async function init(){
   const q=params.get('q');
   if(scheduled&&q){await showQuestion(q,false);history.replaceState({},'',location.pathname)}
   else showEager();
+
+  // iPhone may keep a Home Screen PWA alive in the background instead of reloading it.
+  // A normal reopen between scheduled pushes should therefore become extra-practice mode.
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){hiddenAt=Date.now();return}
+    if(hiddenAt&&Date.now()-hiddenAt>15000){showEager();hiddenAt=null}
+  });
 }
 init();
