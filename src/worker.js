@@ -2,7 +2,7 @@ import webpush from 'web-push';
 import { QUESTIONS, questionById } from './questions.js';
 
 const WEEKDAY_TIMES = ['07:00', '09:35', '12:42', '15:30', '21:00'];
-const WEEKEND_TIMES = ['12:00', '14:00', '16:00', '18:00', '20:00'];
+const WEEKEND_TIMES = ['12:00', '14:00', '16:00', '18:00'];
 const DEFAULT_LEARNED = ['print','variables','strings','numbers','input','comparisons','if'];
 
 function json(data, status = 200) {
@@ -86,7 +86,7 @@ async function sendScheduled(env, now = new Date()) {
 
     const question = chooseQuestion(row, local.date, slot);
     const payload = JSON.stringify({
-      title: `PyRecall • ${slot + 1}/5`,
+      title: `PyRecall • ${slot + 1}/${schedule.length}`,
       body: question.prompt,
       navigate: `/?scheduled=1&q=${encodeURIComponent(question.id)}&slot=${slot}`
     });
@@ -201,7 +201,7 @@ export default {
     return env.ASSETS.fetch(request);
   },
 
-  async scheduled(_controller, env, ctx) {
-    ctx.waitUntil(sendScheduled(env));
+  async scheduled(controller, env, ctx) {
+    ctx.waitUntil(sendScheduled(env, new Date(controller.scheduledTime)));
   }
 };
