@@ -25,7 +25,7 @@ function renderSchedule(config){
   const d=new Date(), weekend=[0,6].includes(d.getDay());
   const times=weekend?config.weekendTimes:config.weekdayTimes;
   $('scheduleHeading').textContent=weekend?'Weekend':'Weekday';
-  $('schedule').innerHTML=times.map((t,i)=>`<div class="slot"><b>${formatTime(t)}</b><span>${i+1}/5</span></div>`).join('');
+  $('schedule').innerHTML=times.map((t,i)=>`<div class="slot"><b>${formatTime(t)}</b><span>${i+1}/${times.length}</span></div>`).join('');
 }
 function formatTime(hhmm){let [h,m]=hhmm.split(':').map(Number);const ap=h>=12?'PM':'AM';h=h%12||12;return `${h}:${String(m).padStart(2,'0')} ${ap}`}
 
