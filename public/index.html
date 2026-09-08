@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7c5cff">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+  <title>PyRecall</title>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="brand"><span class="logo">Py</span><div><h1>PyRecall</h1><p>Remember it before you forget it.</p></div></div>
+      <div class="xp">🔥 <strong id="streak">0</strong></div>
+    </header>
+
+    <section id="setupCard" class="card setup">
+      <span class="eyebrow">IPHONE SETUP</span>
+      <h2>Turn on your five daily questions</h2>
+      <p>For iPhone push notifications, install this site to your Home Screen first, then open the installed app and enable notifications.</p>
+      <div class="steps">
+        <div><b>1</b><span>Safari → Share → Add to Home Screen</span></div>
+        <div><b>2</b><span>Open PyRecall from your Home Screen</span></div>
+        <div><b>3</b><span>Tap the button below and allow notifications</span></div>
+      </div>
+      <button id="enablePush" class="primary">Enable daily notifications</button>
+      <button id="testPush" class="secondary hidden">Send test notification</button>
+      <p id="pushStatus" class="tiny"></p>
+    </section>
+
+    <section class="card schedule-card">
+      <span class="eyebrow">YOUR SCHEDULE</span>
+      <h2 id="scheduleHeading">Weekday</h2>
+      <div id="schedule" class="schedule"></div>
+    </section>
+
+    <section id="eagerCard" class="card eager hidden">
+      <span class="eyebrow">EXTRA PRACTICE</span>
+      <h2>Eager to learn?</h2>
+      <p>How about we challenge you a bit? No simple recognition this time — you’ll have to change or write the code.</p>
+      <button id="challengeBtn" class="primary">Challenge me</button>
+    </section>
+
+    <section id="questionCard" class="card question hidden">
+      <div class="question-top"><span id="conceptPill" class="pill">Python</span><span id="tierLabel">Recall</span></div>
+      <h2 id="prompt"></h2>
+      <pre id="codeBox" class="hidden"><code id="code"></code></pre>
+      <div id="answers"></div>
+      <button id="notLearned" class="link-btn">I haven't learned this yet</button>
+      <div id="feedback" class="feedback hidden"></div>
+    </section>
+
+    <section class="card">
+      <div class="row"><div><span class="eyebrow">CONCEPTS</span><h2>What have you learned?</h2></div><button id="toggleConcepts" class="secondary small">Edit</button></div>
+      <p class="muted">Uncheck anything your course hasn't taught you yet. Notifications will fall back to things you know.</p>
+      <div id="concepts" class="concepts hidden"></div>
+      <div id="learnedSummary" class="chips"></div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
