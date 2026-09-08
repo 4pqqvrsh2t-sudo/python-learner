@@ -14,7 +14,7 @@
   },
   "vars": {
     "TIME_ZONE": "America/New_York",
-    "VAPID_PUBLIC_KEY": "REPLACE_WITH_YOUR_PUBLIC_VAPID_KEY"
+    "VAPID_PUBLIC_KEY": "BH3S8DmdJ_lzkjqagvwfwWsyhfFanOZKAwgfPzTtq_YaznPaxMbmMP6PJihT-s9fIByVeFP-W7K3FugEkNBFK6M"
   },
   "d1_databases": [
     {
